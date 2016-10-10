@@ -1,0 +1,30 @@
+# i3status config file
+
+general {
+		output_format = "i3bar"
+		interval = 5
+		separator = "   "
+}
+
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "cpu_temperature 1"
+order += "tztime local"
+
+cpu_usage {
+		format = "  %usage"
+}
+
+cpu_temperature 0 {
+		format = "   %degrees °C"
+		path = "/sys/class/hwmon/hwmon4/device/temp1_input"
+}
+
+cpu_temperature 1 {
+		format = "   %degrees °C"
+		path = "/sys/class/hwmon/hwmon2/temp1_input"
+}
+
+tztime local {
+		format = "   %d.%m     %H:%M"
+}
